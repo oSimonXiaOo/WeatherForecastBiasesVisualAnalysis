@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+    <title>Visualization</title>
+    {% load staticfiles %}
+
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/leaflet.css" %}"/>
+    <link rel='stylesheet' href="{% static "css/stack.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/leaflet-draw.css" %}"/>
+
+    <script src="{% static "base/d3.min.js" %}"></script>
+    <script src="{% static "base/jquery.min.js" %}"></script>
+    <script src="{% static "base/bootstrap.min.js" %}"></script>
+    <script src="{% static "base/echarts.min.js" %}"></script>
+    <script src="{% static "base/leaflet.js" %}"></script>
+    <script src="{% static "base/leaflet-draw.js" %}"></script>
+    <script src="{% static "base/leaflet-heat.min.js" %}"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" id="home">VIS</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Date" id="date">
+                    </div>
+                </form>
+                <li><a href="#" id="search">Search</a></li>
+                <li><a href="#" id="reset">Reset</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">XYL</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="stage">
+            <div class='tilter'>
+                <div class='map' id='map' style=" width:100%; height: 500px;border: 1px solid #ccc;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div id="scatter" style=" width:100%; height: 500px;border: 1px solid #ccc;">
+        </div>
+        <div class="dropdown" style=" position: absolute; left: 140px; top: 0px;">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                PCA
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a id="PCA">PCA</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a id="TSNE">TSNE</a></li>
+                <li><a id="ISOMAP">ISOMAP</a></li>
+                <li><a id="RTE">RTE</a></li>
+                <li><a id="SE">SE</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row" id="scatter-contrast-div">
+    <div class="col-lg-8">
+        <div id="time-overview" style=" width:100%; height: 250px;border: 1px solid #ccc;">
+        </div>
+        <div id="parallel" style=" width:100%; height: 250px;border: 1px solid #ccc;">
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <img src="{% static "data/plot_old.png" %}" id="img-cluster" style=" width:100%; height: 500px;border: 1px solid #ccc;">
+    </div>
+</div>
+<script src="{% static "js/detection-event.js" %}"></script>
+
+<script src="{% static "js/detection-map.js" %}"></script>
+<script src="{% static "js/detection-temporal.js" %}"></script>
+<script src="{% static "js/detection-analyse.js" %}"></script>
+<script src="{% static "js/detection-scatter.js" %}"></script>
+<script src="{% static "js/detection-parallel.js" %}"></script>
+<script src="{% static "js/detection-rainarea.js" %}"></script>
+<script src="{% static "js/detection-stack.js" %}"></script>
+</body>
+</html>
