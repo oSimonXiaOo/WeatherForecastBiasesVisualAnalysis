@@ -81,4 +81,8 @@ This is a Django project!
 
 - 连续雨区可视化
 
+----------
+
+![](https://i.imgur.com/z065Yn4.png)
+
 
