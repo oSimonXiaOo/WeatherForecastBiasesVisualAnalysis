@@ -1,6 +1,4 @@
-/**
- * Created by 肖云龙 on 2017/3/14.
- */
+
 var render2D = function () {
     map.dragging.enable();
 

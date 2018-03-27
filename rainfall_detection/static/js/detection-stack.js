@@ -1,6 +1,4 @@
-/**
- * Created by 肖云龙 on 2017/3/14.
- */
+
 var render3D = function () {
     d3.select("#map").selectAll(".rainarea").remove();
     d3.select("#map").selectAll(".numbers").remove();

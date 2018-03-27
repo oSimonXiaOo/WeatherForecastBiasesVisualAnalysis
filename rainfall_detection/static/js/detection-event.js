@@ -1,6 +1,4 @@
-/**
- * Created by 肖云龙 on 2017/2/21.
- */
+
 var rdw_identity = 0;
 var rdw_heat = []; //热力值数据
 var rdw_scatter = []; //散点值

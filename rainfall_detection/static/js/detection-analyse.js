@@ -1,6 +1,4 @@
-/**
- * Created by qcrtrash on 2017/7/25.
- */
+
 var analyse = function (mode) {
     var path = $("#map").find("path").attr("d");
     d3.select("#map").select("canvas").remove();

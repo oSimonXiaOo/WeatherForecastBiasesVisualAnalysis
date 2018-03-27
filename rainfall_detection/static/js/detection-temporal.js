@@ -1,6 +1,3 @@
-/**
- * Created by 肖云龙 on 2017/2/24.
- */
 
 var showOverview = function (data) {
     var option = {

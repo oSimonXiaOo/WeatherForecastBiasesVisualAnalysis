@@ -35,12 +35,12 @@ def ajax_init(request):
         for v in value:
             item = [v.longitude, v.latitude, v.value]
             heat.append(item)
-        for line in open('L:\\Workspace\\properties.txt', "r"):
+        for line in open('L:\\Workspace\\Vis\\properties.txt', "r"):
             temp = []
             temp.extend(line.strip().split(' '))
             temp = map(float, temp)
             properties.append(temp)
-        for line in open('L:\\Workspace\\identities.txt', "r"):
+        for line in open('L:\\Workspace\\Vis\\identities.txt', "r"):
             identities.extend(line.strip().split(' '))
         identities = map(float, identities)
         pos = analyse_mode(properties, mode)
@@ -59,19 +59,19 @@ def ajax_rain(request):
         date = request.GET['date']
         if date == '':
             return JsonResponse(data, safe=False)
-        source_dir = 'L:\\Workspace\\filter_fcst_rain_paths'
+        source_dir = 'L:\\Workspace\\Vis\\filter_fcst_rain_paths'
         for root, sub_dirs, files in os.walk(source_dir):
             for special_file in files:
                 spcial_file_dir = os.path.join(root, special_file)
                 with open(spcial_file_dir) as source_file:
                     file_name = spcial_file_dir.split('\\')
-                    file_date = file_name[3].split('.')[0]
+                    file_date = file_name[4].split('.')[0]
                     if file_date == date:
                         item = []
                         for line in source_file:
                             info = line.split(' ')
                             item.append([float(info[0]), float(info[1])])
-                        data.append({"identity": file_name[3], "data": item})
+                        data.append({"identity": file_name[4], "data": item})
     return JsonResponse(data, safe=False)
 
 
@@ -93,7 +93,7 @@ def ajax_con_rain(request):
             continuous = Continuous.objects(mark=con.mark).order_by("identity")
             for c in continuous:
                 id = 0
-                source_dir = 'L:\\Workspace\\filter_fcst_rain_paths'
+                source_dir = 'L:\\Workspace\\Vis\\filter_fcst_rain_paths'
                 spcial_file_dir = os.path.join(source_dir, c.identity)
                 with open(spcial_file_dir) as source_file:
                     item = []
@@ -111,7 +111,7 @@ def ajax_con_rain(request):
                             distant = d
                             id = o.identity
                     if id != 0:
-                        source_dir = 'L:\\Workspace\\filter_anal_rain_paths'
+                        source_dir = 'L:\\Workspace\\Vis\\filter_anal_rain_paths'
                         spcial_file_dir = os.path.join(source_dir, id)
                         with open(spcial_file_dir) as source_file:
                             item = []
@@ -156,7 +156,7 @@ def ajax_analyse(request):
             Z = sch.linkage(disMat, method='average')
             sch.set_link_color_palette(['c'])
             P = sch.dendrogram(Z)
-            plt.savefig('L:\\Workspace\\rdw\\rainfall_detection\\static\\data\\plot_new.png')
+            plt.savefig('L:\\Workspace\\Vis\\rdw\\rainfall_detection\\static\\data\\plot_new.png')
             cluster = sch.fcluster(Z, t=1)
             #print "Original cluster by hierarchy clustering:\n", cluster
 

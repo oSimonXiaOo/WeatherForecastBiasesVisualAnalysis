@@ -1,6 +1,4 @@
-/**
- * Created by 肖云龙 on 2017/1/4.
- */
+
 
 var showScatter = function (data) {
 
